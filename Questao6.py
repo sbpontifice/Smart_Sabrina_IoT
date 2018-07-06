@@ -111,6 +111,7 @@ while True:
 			button_value = gpio.digital_read(TOQUE)
 			status_button = 0
 			if button_value == 0:
+				print "modo automatico"
 				vtemp = temperatura(gpio)
 				vlumi = luminosidade(gpio)
 				time.sleep(5)
@@ -148,7 +149,7 @@ while True:
 					print "Luz desligada. Agora e dia!"
 	
 			else:
-				print "Você acionou o controle manual! Agora pode decidir quando ligar ou desligar seus aparelhos!"
+				print "manual"
 				respostaligarele = dweet.latest_dweet(name="iplug_sabrina_q6")
 				dwligarele = respostaligarele['with'][0]['content']['rele']
 	
