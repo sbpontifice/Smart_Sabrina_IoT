@@ -113,7 +113,6 @@ while True:
 			if button_value == 0:
 				vtemp = temperatura(gpio)
 				vlumi = luminosidade(gpio)
-				#print "Ola! O sistema esta trabalhando de forma automatica”
 				time.sleep(5)
 	 			if vtemp > temperatura and vlumi < sensibilidade:
 					ligarele()
