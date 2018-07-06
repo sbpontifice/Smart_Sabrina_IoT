@@ -113,7 +113,7 @@ while True:
 			if button_value == 0:
 				vtemp = temperatura(gpio)
 				vlumi = luminosidade(gpio)
-				print ("Olá! O sistema está trabalhando de forma automática”)
+				print ("Ola! O sistema esta trabalhando de forma automatica”)
 				time.sleep(5)
 	 			if vtemp > temperatura and vlumi < sensibilidade:
 					ligarele()
@@ -122,7 +122,7 @@ while True:
 					print ("Temperatura: %2.1f" %vtemp)
 					print "Ar condiciondo ligado!"
 					print ("Luminosidade: %d" %vlumi)
-					print "Luz Ligada! Agora é noite!"		
+					print "Luz Ligada! Agora e noite!"		
 				elif vtemp > temperatura and vlumi > sensibilidade:
 					ligarele()
 					desligaled()
@@ -130,7 +130,7 @@ while True:
 					print ("Temperatura: %2.1f" %vtemp)
 					print "Ar condiciondo ligado!"
 					print ("Luminosidade: %d" %vlumi)
-					print "Luz Desligada! Agora é dia!"
+					print "Luz Desligada! Agora e dia!"
 				elif vtemp < temperatura and vlumi < sensibilidade:
 					desligarele()
 					ligaled()
@@ -138,7 +138,7 @@ while True:
 					print ("Temperatura: %2.1f" %vtemp)
 					print "Ar condiciondo desligado!"
 					print ("Luminosidade: %d" %vlumi)
-					print "Luz Ligada! Agora é noite!"
+					print "Luz Ligada! Agora e noite!"
 				else:		
 					desligarele()
 					desligaled()
@@ -146,7 +146,7 @@ while True:
 					print ("Temperatura: %2.1f" %vtemp)
 					print "Ar condiciondo desligado!"
 					print ("Luminosidade: %d" %vlumi)
-					print "Luz desligada. Agora é dia!"
+					print "Luz desligada. Agora e dia!"
 	
 			else:
 				print "Você acionou o controle manual! Agora pode decidir quando ligar ou desligar seus aparelhos!"
