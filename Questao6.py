@@ -4,9 +4,6 @@ import time
 from libsoc import gpio
 from gpio_96boards import GPIO
 
-#teste
-#teste2
-
 GPIO_CS = GPIO.gpio_id('GPIO_CS')
 RELE = GPIO.gpio_id('GPIO_A')
 LED = GPIO.gpio_id('GPIO_C')
@@ -88,37 +85,25 @@ def desligaled():
 
 	gpio.digital_write(LED, GPIO.LOW)
 
-	#dweet.dweet_by_name(name="iplug_sabrina_q5", data={"led":0})
+	#dweet.dweet_by_name(name="iplug_sabrina_q3", data={"led":0})
 	#resposta = dweet.latest_dweet(name="iplug_sabrina_q3")
 	#print resposta['content']
 
-def respostadweet():
-	resposta = dweet.latest_dweet(name="iplug_sabrina_q6")
-	dwligarele = resposta['with'][0]['content']['button']
-	
-	resposta = dweet.latest_dweet(name="iplug_sabrina_q6")
-	dwdesligarele = resposta['content']
-
-	resposta = dweet.latest_dweet(name="iplug_sabrina_q6")
-	dwligaled = resposta['with'][0]['content']['led']
-
-	resposta = dweet.latest_dweet(name="iplug_sabrina_q6")
-	dwdesligaled = resposta['content']		
+		
 
 
 while True:
 	with GPIO(pins) as gpio:
 			button_value = gpio.digital_read(TOQUE)
-			status_button = 0
-			if button_value == 0:
-				print "modo automatico"
+			if button_value == 1:
 				vtemp = temperatura(gpio)
 				vlumi = luminosidade(gpio)
-				time.sleep(5)
+				print "Ola! Voce chegou em casa!"
+				time.sleep(0.2)
 	 			if vtemp > temperatura and vlumi < sensibilidade:
 					ligarele()
 					ligaled()
-					dweet.dweet_by_name(name="iplug_sabrina_q6", data={"led":1, "rele":1, "toque":1})
+					dweet.dweet_by_name(name="iplug_sabrina_q4", data={"led":1, "rele":1, "toque":1})
 					print ("Temperatura: %2.1f" %vtemp)
 					print "Ar condiciondo ligado!"
 					print ("Luminosidade: %d" %vlumi)
@@ -126,7 +111,7 @@ while True:
 				elif vtemp > temperatura and vlumi > sensibilidade:
 					ligarele()
 					desligaled()
-					dweet.dweet_by_name(name="iplug_sabrina_q6", data={"led":0, "rele":1, "toque":1})
+					dweet.dweet_by_name(name="iplug_sabrina_q4", data={"led":0, "rele":1, "toque":1})
 					print ("Temperatura: %2.1f" %vtemp)
 					print "Ar condiciondo ligado!"
 					print ("Luminosidade: %d" %vlumi)
@@ -134,7 +119,7 @@ while True:
 				elif vtemp < temperatura and vlumi < sensibilidade:
 					desligarele()
 					ligaled()
-					dweet.dweet_by_name(name="iplug_sabrina_q6", data={"led":1, "rele":0, "toque":1})
+					dweet.dweet_by_name(name="iplug_sabrina_q4", data={"led":1, "rele":0, "toque":1})
 					print ("Temperatura: %2.1f" %vtemp)
 					print "Ar condiciondo desligado!"
 					print ("Luminosidade: %d" %vlumi)
@@ -142,38 +127,13 @@ while True:
 				else:		
 					desligarele()
 					desligaled()
-					dweet.dweet_by_name(name="iplug_sabrina_q6", data={"led":0, "rele":0, "toque":1})
+					dweet.dweet_by_name(name="iplug_sabrina_q4", data={"led":0, "rele":0, "toque":1})
 					print ("Temperatura: %2.1f" %vtemp)
 					print "Ar condiciondo desligado!"
 					print ("Luminosidade: %d" %vlumi)
 					print "Luz desligada. Agora e dia!"
 	
 			else:
-				print "manual"
-				respostaligarele = dweet.latest_dweet(name="iplug_sabrina_q6")
-				dwligarele = respostaligarele['with'][0]['content']['rele']
-	
-				respostaligaled = dweet.latest_dweet(name="iplug_sabrina_q6")
-				dwligaled = respostaligaled['with'][0]['content']['led']
-
-				if dwligaled ==1 and dwligarele ==1:
-					ligaled()
-					ligarele()
-					dweet.dweet_by_name(name="iplug_sabrina_q6", data={"led":1, "rele":1, "toque":1})
-				
-				elif dwligaled ==1 and dwligarele ==0:
-					ligaled()
-					desligarele()
-					dweet.dweet_by_name(name="iplug_sabrina_q6", data={"led":1, "rele":0, "toque":1})
-				
-				elif dwligaled == 0 and dwligarele ==1:
-					desligaled()
-					ligarele()
-					dweet.dweet_by_name(name="iplug_sabrina_q6", data={"led":0, "rele":1, "toque":1})
-
-				else:
-					desligaled()
-					desligarele()
-					dweet.dweet_by_name(name="iplug_sabrina_q6", data={"led":0, "rele":0, "toque":1})
-					#teste
-			time.sleep(5)
+				print "Sistema desligado! Nao tem ninguem em casa!"
+				dweet.dweet_by_name(name="iplug_sabrina_q4", data={"led":0, "rele":0, "toque":0})	
+			time.sleep(0.5)		
