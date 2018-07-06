@@ -4,6 +4,8 @@ import time
 from libsoc import gpio
 from gpio_96boards import GPIO
 
+#teste
+
 GPIO_CS = GPIO.gpio_id('GPIO_CS')
 RELE = GPIO.gpio_id('GPIO_A')
 LED = GPIO.gpio_id('GPIO_C')
