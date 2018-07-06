@@ -5,6 +5,7 @@ from libsoc import gpio
 from gpio_96boards import GPIO
 
 #teste
+#teste2
 
 GPIO_CS = GPIO.gpio_id('GPIO_CS')
 RELE = GPIO.gpio_id('GPIO_A')
