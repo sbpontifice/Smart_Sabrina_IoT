@@ -174,5 +174,6 @@ while True:
 				else:
 				desligaled()
 				desligarele()
-				dweet.dweet_by_name(name="iplug_sabrina_q6", data={"led":0, "rele":0, "toque":1})	
+				dweet.dweet_by_name(name="iplug_sabrina_q6", data={"led":0, "rele":0, "toque":1})
+				#teste
 			time.sleep(5)
