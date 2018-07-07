@@ -151,24 +151,28 @@ while True:
 				if dwligaled == 1 and dwligarele == 1:
 					ligaled()
 					ligarele()
+					print "Luzes e Ar condionado ligados"
 					dweet.dweet_by_name(name="iplug_sabrina_q4", data={"led":1, "rele":1, "toque":1})
 					time.sleep(5)
 				
 				elif dwligaled == 1 and dwligarele == 0:
 					ligaled()
 					desligarele()
+					print "Luzes ligadas e Ar condicionado desligado"
 					dweet.dweet_by_name(name="iplug_sabrina_q4", data={"led":1, "rele":0, "toque":1})
 					time.sleep(5)
 
 				elif dwligaled == 0 and dwligarele == 1:
 					desligaled()
 					ligarele()
+					print "Luzes desligadas e ar condicionado ligado"
 					dweet.dweet_by_name(name="iplug_sabrina_q4", data={"led":0, "rele":1, "toque":1})
 					time.sleep(5)
 
 				else:
 					desligaled()
 					desligarele()
+					print "Luzes e ar condicionado desligados"
 					dweet.dweet_by_name(name="iplug_sabrina_q4", data={"led":0, "rele":0, "toque":1})
 					time.sleep(5)
 
