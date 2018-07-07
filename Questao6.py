@@ -98,7 +98,7 @@ while True:
 			if button_value == 0:
 				vtemp = temperatura(gpio)
 				vlumi = luminosidade(gpio)
-				print "Sua casa está sendo controlada automaticamente"
+				print "Sua casa esta sendo controlada automaticamente"
 				time.sleep(5)
 	 			if vtemp > temperatura and vlumi < sensibilidade:
 					ligarele()
