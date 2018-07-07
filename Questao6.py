@@ -107,7 +107,8 @@ while True:
 					print ("Temperatura: %2.1f" %vtemp)
 					print "Ar condiciondo ligado!"
 					print ("Luminosidade: %d" %vlumi)
-					print "Luz Ligada! Agora e noite!"		
+					print "Luz Ligada! Agora e noite!"
+					time.sleep(5)
 				elif vtemp > temperatura and vlumi > sensibilidade:
 					ligarele()
 					desligaled()
@@ -116,6 +117,7 @@ while True:
 					print "Ar condiciondo ligado!"
 					print ("Luminosidade: %d" %vlumi)
 					print "Luz Desligada! Agora e dia!"
+					time.sleep(5)
 				elif vtemp < temperatura and vlumi < sensibilidade:
 					desligarele()
 					ligaled()
@@ -124,6 +126,7 @@ while True:
 					print "Ar condiciondo desligado!"
 					print ("Luminosidade: %d" %vlumi)
 					print "Luz Ligada! Agora e noite!"
+					time.sleep(5)
 				else:		
 					desligarele()
 					desligaled()
@@ -132,6 +135,7 @@ while True:
 					print "Ar condiciondo desligado!"
 					print ("Luminosidade: %d" %vlumi)
 					print "Luz desligada. Agora e dia!"
+					time.sleep(5)
 	
 			else:
 				print "Sistema automatico desligado! Agora voce pode ligar ou desligar seus aparelhos quando quiser"
@@ -145,19 +149,24 @@ while True:
 					ligaled()
 					ligarele()
 					dweet.dweet_by_name(name="iplug_sabrina_q4", data={"led":1, "rele":1, "toque":1})
+					time.sleep(5)
 				
 				elif dwligaled == 1 and dwligarele == 0:
 					ligaled()
 					desligarele()
 					dweet.dweet_by_name(name="iplug_sabrina_q4", data={"led":1, "rele":0, "toque":1})
+					time.sleep(5)
 
 				elif dwligaled == 0 and dwligarele == 1:
 					desligaled()
 					ligarele()
 					dweet.dweet_by_name(name="iplug_sabrina_q4", data={"led":0, "rele":1, "toque":1})
+					time.sleep(5)
+
 				else:
 					desligaled()
 					desligarele()
 					dweet.dweet_by_name(name="iplug_sabrina_q4", data={"led":0, "rele":0, "toque":1})
-	
+					time.sleep(5)
+
 			time.sleep(5)		
