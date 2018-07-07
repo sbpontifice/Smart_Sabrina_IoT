@@ -95,8 +95,11 @@ def desligaled():
 while True:
 	with GPIO(pins) as gpio:
 			button_value = gpio.digital_read(TOQUE)
-			respostaligatoque = dweet.latest_dweet(name="iplug_sabrina_q4")
-			dwligatoque = respostaligatoque['with'][0]['content']['toque']
+			resposta = dweet.latest_dweet(name="iplug_sabrina_q4")
+			dwligatoque = resposta['with'][0]['content']['toque']
+			dwligaled = resposta['with'][0]['content']['led']
+			dwligarele = resposta['with'][0]['content']['rele']
+
 			if button_value == 0 and dwligatoque == 0:
 				vtemp = temperatura(gpio)
 				vlumi = luminosidade(gpio)
@@ -141,9 +144,9 @@ while True:
 	
 			else:
 				print "Sistema automatico desligado! Agora voce pode ligar ou desligar seus aparelhos quando quiser"
-				resposta = dweet.latest_dweet(name="iplug_sabrina_q4")
+				#resposta = dweet.latest_dweet(name="iplug_sabrina_q4")
 				#dwligaled = resposta['with'][0]['content']['led']
-				dwligarele = resposta['with'][0]['content']['rele']
+				#dwligarele = resposta['with'][0]['content']['rele']
 
 				if dwligaled == 1 and dwligarele == 1:
 					ligaled()
