@@ -95,7 +95,9 @@ def desligaled():
 while True:
 	with GPIO(pins) as gpio:
 			button_value = gpio.digital_read(TOQUE)
-			if button_value == 0:
+			respostaligatoque = dweet.latest_dweet(name="iplug_sabrina_q4")
+			dwligatoque = respostaligatoque['with'][0]['content']['toque']
+			if button_value == 0 and dwligatoque == 0:
 				vtemp = temperatura(gpio)
 				vlumi = luminosidade(gpio)
 				print "Sua casa esta sendo controlada automaticamente"
