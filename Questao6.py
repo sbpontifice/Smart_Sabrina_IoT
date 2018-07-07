@@ -95,11 +95,11 @@ def desligaled():
 while True:
 	with GPIO(pins) as gpio:
 			button_value = gpio.digital_read(TOQUE)
-			if button_value == 1:
+			if button_value == 0:
 				vtemp = temperatura(gpio)
 				vlumi = luminosidade(gpio)
-				print "Ola! Voce chegou em casa!"
-				time.sleep(0.2)
+				print "Sua casa está sendo controlada automaticamente"
+				time.sleep(5)
 	 			if vtemp > temperatura and vlumi < sensibilidade:
 					ligarele()
 					ligaled()
@@ -134,6 +134,30 @@ while True:
 					print "Luz desligada. Agora e dia!"
 	
 			else:
-				print "Sistema desligado! Nao tem ninguem em casa!"
-				dweet.dweet_by_name(name="iplug_sabrina_q4", data={"led":0, "rele":0, "toque":0})	
-			time.sleep(0.5)		
+				print "Sistema automatico desligado! Agora voce pode ligar ou desligar seus aparelhos quando quiser"
+				respostaligaled = dweet.latest_dweet(name="iplug_sabrina_q4")
+				dwligaled = respostaligaled['with'][0]['content']['led']
+
+				respostarele = dweet.latest_dweet(name="iplug_sabrina_q4")
+				dwligarele = respostaligarele['with'][0]['content']['rele']
+
+				if dwligaled == 1 and dwligarele == 1:
+					ligaled()
+					ligarele()
+					dweet.dweet_by_name(name="iplug_sabrina_q4", data={"led":1, "rele":1, "toque":1})
+				
+				elif dwligaled == 1 and dwligarele == 0:
+					ligaled()
+					desligarele()
+					dweet.dweet_by_name(name="iplug_sabrina_q4", data={"led":1, "rele":0, "toque":1})
+
+				elif dwligaled == 0 and dwligarele == 1:
+					desligaled()
+					ligarele()
+					dweet.dweet_by_name(name="iplug_sabrina_q4", data={"led":0, "rele":1, "toque":1})
+				else:
+					desligaled()
+					desligarele()
+					dweet.dweet_by_name(name="iplug_sabrina_q4", data={"led":0, "rele":0, "toque":1})
+	
+			time.sleep(5)		
