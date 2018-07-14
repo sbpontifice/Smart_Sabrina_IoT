@@ -132,7 +132,7 @@ while True:
 				elif vtemp < 19 and vlumi < sensibilidade:
 					desligarele()
 					ligaled()
-					dweet.dweet_by_name(name="iplug_sabrina_q4", data={"led":1, "rele":0, "toque":dwligatoque, "Temperatura":vtemp, "Luminosidade":vlumi)
+					dweet.dweet_by_name(name="iplug_sabrina_q4", data={"led":1, "rele":0, "toque":dwligatoque, "Temperatura":vtemp, "Luminosidade":vlumi})
 					print ("Temperatura: %2.1f" %vtemp)
 					print "Ar condiciondo desligado!"
 					print ("Luminosidade: %d" %vlumi)
