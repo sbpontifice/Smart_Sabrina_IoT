@@ -12,7 +12,7 @@ TOQUE = GPIO.gpio_id('GPIO_E')
 pins = ((GPIO_CS, 'out'), (LED, 'out'), (RELE, 'out'), (TOQUE, 'in'),)
 
 sensibilidade = 400
-temperatura = 21.0
+temperatura = 19
 
 spi = spidev.SpiDev()
 spi.open(0,0)
@@ -39,7 +39,7 @@ def luminosidade(gpio):
 def temperatura(gpio):
 
 	gpio.digital_write(GPIO_CS, GPIO.HIGH)
-	time.sleep(0.0002)
+	time.sleep(0.5)
 	gpio.digital_write(GPIO_CS, GPIO.LOW)
 	r1 = spi.xfer2([0x01, 0x80, 0x00])
 	gpio.digital_write(GPIO_CS, GPIO.HIGH)
@@ -90,15 +90,9 @@ def desligaled():
 
 def respostadweet():
 	resposta = dweet.latest_dweet(name="iplug_sabrina_q4")
-	dwligarele = resposta['with'][0]['content']['button']
-	
-	resposta = dweet.latest_dweet(name="iplug_sabrina_q4")
+	dwligarele = resposta['with'][0]['content']['rele']
 	dwdesligarele = resposta['content']
-
-	resposta = dweet.latest_dweet(name="iplug_sabrina_q4")
 	dwligaled = resposta['with'][0]['content']['led']
-
-	resposta = dweet.latest_dweet(name="iplug_sabrina_q4")
 	dwdesligaled = resposta['content']		
 
 
