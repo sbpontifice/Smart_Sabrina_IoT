@@ -154,11 +154,9 @@ while True:
 	
 			else:
 				print "Voce acionou o controle manual! Agora pode decidir quando ligar ou desligar seus aparelhos!"
-				respostaligarele = dweet.latest_dweet(name="iplug_sabrina_q4")
-				dwligarele = respostaligarele['with'][0]['content']['rele']
-	
-				respostaligaled = dweet.latest_dweet(name="iplug_sabrina_q4")
-				dwligaled = respostaligaled['with'][0]['content']['led']
+				resposta = dweet.latest_dweet(name="iplug_sabrina_q4")
+				dwligarele = resposta['with'][0]['content']['rele']
+				dwligaled = resposta['with'][0]['content']['led']
 
 				if dwligaled ==1 and dwligarele ==1:
 					ligaled()
