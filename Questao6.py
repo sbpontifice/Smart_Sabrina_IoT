@@ -13,7 +13,7 @@ pins = ((GPIO_CS, 'out'), (LED, 'out'), (RELE, 'out'), (TOQUE, 'in'),)
 
 sensibilidade = 400
 temperatura = 19
-dwtoque = 0
+dwligatoque = 0
 
 spi = spidev.SpiDev()
 spi.open(0,0)
