@@ -96,9 +96,8 @@ def respostadweet():
 	dwligaled = resposta['with'][0]['content']['led']
 	dwdesligaled = resposta['content']		
 
-
-while True:
-	with GPIO(pins) as gpio:
+with GPIO(pins) as gpio:
+	while True:
 			button_value = gpio.digital_read(TOQUE)
 			resposta = dweet.latest_dweet(name="iplug_sabrina_q4")
 			dwligatoque = resposta['with'][0]['content']['toque']
