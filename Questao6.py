@@ -153,7 +153,7 @@ while True:
 					time.sleep(5)
 	
 			else:
-				print "Você acionou o controle manual! Agora pode decidir quando ligar ou desligar seus aparelhos!"
+				print "Voce acionou o controle manual! Agora pode decidir quando ligar ou desligar seus aparelhos!"
 				respostaligarele = dweet.latest_dweet(name="iplug_sabrina_q4")
 				dwligarele = respostaligarele['with'][0]['content']['button']
 	
