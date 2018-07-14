@@ -13,6 +13,7 @@ pins = ((GPIO_CS, 'out'), (LED, 'out'), (RELE, 'out'), (TOQUE, 'in'),)
 
 sensibilidade = 400
 temperatura = 19
+dwtoque = 0
 
 spi = spidev.SpiDev()
 spi.open(0,0)
@@ -103,6 +104,7 @@ while True:
 			dwligatoque = resposta['with'][0]['content']['toque']
 			dwligaled = resposta['with'][0]['content']['led']
 			dwligarele = resposta['with'][0]['content']['rele']
+			
 
 			if button_value == 0 and dwligatoque == 0:
 				vtemp = temperatura(gpio)
@@ -112,7 +114,7 @@ while True:
 	 			if vtemp > 19 and vlumi < sensibilidade:
 					ligarele()
 					ligaled()
-					dweet.dweet_by_name(name="iplug_sabrina_q4", data={"led":1, "rele":1, "toque": dwligatoque, "Temperatura":vtemp, "Luminosidade":vlumi})
+					dweet.dweet_by_name(name="iplug_sabrina_q4", data={"led":1, "rele":1, "toque":dwligatoque, "Temperatura":vtemp, "Luminosidade":vlumi})
 					print ("Temperatura: %2.1f" %vtemp)
 					print "Ar condiciondo ligado!"
 					print ("Luminosidade: %d" %vlumi)
