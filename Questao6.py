@@ -9,7 +9,6 @@ RELE = GPIO.gpio_id('GPIO_A')
 LED = GPIO.gpio_id('GPIO_C')
 TOQUE = GPIO.gpio_id('GPIO_E')
 
-
 pins = ((GPIO_CS, 'out'), (LED, 'out'), (RELE, 'out'), (TOQUE, 'in'),)
 
 sensibilidade = 400
