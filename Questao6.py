@@ -58,43 +58,27 @@ def ligarele():
 
 	gpio.digital_write(RELE, GPIO.HIGH)
 
-	#dweet.dweet_by_name(name="iplug_sabrina_q3", data={"rele":1})
-	#resposta = dweet.latest_dweet(name="iplug_sabrina_q3")
-	#print resposta['with'][0]['content']['button']
-
 
 def desligarele():
 
 	gpio.digital_write(RELE, GPIO.LOW)
-
-	#dweet.dweet_by_name(name="iplug_sabrina_q3", data={"rele":0})
-	#resposta = dweet.latest_dweet(name="iplug_sabrina_q3")
-	#print resposta['content']
 
 
 def ligaled():
 
 	gpio.digital_write(LED, GPIO.HIGH)
 
-	#dweet.dweet_by_name(name="iplug_sabrina_q3", data={"led":1})
-	#resposta = dweet.latest_dweet(name="iplug_sabrina_q3")
-	#print resposta['with'][0]['content']['led']
-
 
 def desligaled():
 
 	gpio.digital_write(LED, GPIO.LOW)
 
-	#dweet.dweet_by_name(name="iplug_sabrina_q3", data={"led":0})
-	#resposta = dweet.latest_dweet(name="iplug_sabrina_q3")
-	#print resposta['content']
 
 def respostadweet():
 	resposta = dweet.latest_dweet(name="iplug_sabrina_q4")
 	dwligarele = resposta['with'][0]['content']['rele']
-	dwdesligarele = resposta['content']
 	dwligaled = resposta['with'][0]['content']['led']
-	dwdesligaled = resposta['content']		
+		
 
 with GPIO(pins) as gpio:
 	while True:
