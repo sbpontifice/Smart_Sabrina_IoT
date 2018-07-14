@@ -109,7 +109,7 @@ while True:
 				vlumi = luminosidade(gpio)
 				print "Sua casa esta sendo controlada automaticamente"
 				time.sleep(5)
-	 			if vtemp > temperatura and vlumi < sensibilidade:
+	 			if vtemp > 19 and vlumi < sensibilidade:
 					ligarele()
 					ligaled()
 					dweet.dweet_by_name(name="iplug_sabrina_q4", data={"led":1, "rele":1, "toque":0, "Temperatura":vtemp, "Luminosidade":vlumi})
