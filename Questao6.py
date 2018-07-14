@@ -161,22 +161,22 @@ while True:
 				dwligaled = respostaligaled['with'][0]['content']['led']
 
 				if dwligaled ==1 and dwligarele ==1:
-				ligaled()
-				ligarele()
-				dweet.dweet_by_name(name="iplug_sabrina_q4", data={"led":1, "rele":1, "toque":1, "Temperatura":vtemp, "Luminosidade":vlumi})
+					ligaled()
+					ligarele()
+					dweet.dweet_by_name(name="iplug_sabrina_q4", data={"led":1, "rele":1, "toque":1, "Temperatura":vtemp, "Luminosidade":vlumi})
 				
 				elif dwligaled ==1 and dwligarele ==0:
-				ligaled()
-				desligarele()
-				dweet.dweet_by_name(name="iplug_sabrina_q4", data={"led":1, "rele":0, "toque":1, "Temperatura":vtemp, "Luminosidade":vlumi})
+					ligaled()
+					desligarele()
+					dweet.dweet_by_name(name="iplug_sabrina_q4", data={"led":1, "rele":0, "toque":1, "Temperatura":vtemp, "Luminosidade":vlumi})
 				
 				elif dwligaled == 0 and dwligarele ==1:
-				desligaled()
-				ligarele()
-				dweet.dweet_by_name(name="iplug_sabrina_q4", data={"led":0, "rele":1, "toque":1, "Temperatura":vtemp, "Luminosidade":vlumi})
+					desligaled()
+					ligarele()
+					dweet.dweet_by_name(name="iplug_sabrina_q4", data={"led":0, "rele":1, "toque":1, "Temperatura":vtemp, "Luminosidade":vlumi})
 
 				else:
-				desligaled()
-				desligarele()
-				dweet.dweet_by_name(name="iplug_sabrina_q4", data={"led":0, "rele":0, "toque":1, "Temperatura":vtemp, "Luminosidade":vlumi})	
+					desligaled()
+					desligarele()
+					dweet.dweet_by_name(name="iplug_sabrina_q4", data={"led":0, "rele":0, "toque":1, "Temperatura":vtemp, "Luminosidade":vlumi})	
 			time.sleep(5)
