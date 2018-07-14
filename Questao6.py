@@ -84,10 +84,11 @@ def desligaled():
 
 	gpio.digital_write(LED, GPIO.LOW)
 
-	#dweet.dweet_by_name(name="iplug_sabrina_q5", data={"led":0})
+	#dweet.dweet_by_name(name="iplug_sabrina_q3", data={"led":0})
 	#resposta = dweet.latest_dweet(name="iplug_sabrina_q3")
 	#print resposta['content']
 
+<<<<<<< HEAD
 def respostadweet():
 	resposta = dweet.latest_dweet(name="iplug_sabrina_q4")
 	dwligarele = resposta['with'][0]['content']['button']
@@ -100,51 +101,79 @@ def respostadweet():
 
 	resposta = dweet.latest_dweet(name="iplug_sabrina_q4")
 	dwdesligaled = resposta['content']		
+=======
+		
+>>>>>>> 88807c675ea8f4ebf6e82ce1d81e258cbc2f05d7
 
 
 while True:
 	with GPIO(pins) as gpio:
 			button_value = gpio.digital_read(TOQUE)
-			status_button = 0
-			if button_value == 0:
+			resposta = dweet.latest_dweet(name="iplug_sabrina_q4")
+			dwligatoque = resposta['with'][0]['content']['toque']
+			dwligaled = resposta['with'][0]['content']['led']
+			dwligarele = resposta['with'][0]['content']['rele']
+
+			if button_value == 0 and dwligatoque == 0:
 				vtemp = temperatura(gpio)
 				vlumi = luminosidade(gpio)
-				print "Olá! O sistema está trabalhando de forma automática”
+				print "Sua casa esta sendo controlada automaticamente"
 				time.sleep(5)
 	 			if vtemp > temperatura and vlumi < sensibilidade:
 					ligarele()
 					ligaled()
+<<<<<<< HEAD
 					dweet.dweet_by_name(name="iplug_sabrina_q4", data={"led":1, "rele":1, "toque":1, "Temperatura":vtemp, "Luminosidade":vlumi})
+=======
+					dweet.dweet_by_name(name="iplug_sabrina_q4", data={"led":1, "rele":1, "toque":1})
+>>>>>>> 88807c675ea8f4ebf6e82ce1d81e258cbc2f05d7
 					print ("Temperatura: %2.1f" %vtemp)
 					print "Ar condiciondo ligado!"
 					print ("Luminosidade: %d" %vlumi)
-					print "Luz Ligada! Agora é noite!"		
+					print "Luz Ligada! Agora e noite!"
+					time.sleep(5)
 				elif vtemp > temperatura and vlumi > sensibilidade:
 					ligarele()
 					desligaled()
+<<<<<<< HEAD
 					dweet.dweet_by_name(name="iplug_sabrina_q4", data={"led":0, "rele":1, "toque":1, "Temperatura":vtemp, "Luminosidade":vlumi})
+=======
+					dweet.dweet_by_name(name="iplug_sabrina_q4", data={"led":0, "rele":1, "toque":1})
+>>>>>>> 88807c675ea8f4ebf6e82ce1d81e258cbc2f05d7
 					print ("Temperatura: %2.1f" %vtemp)
 					print "Ar condiciondo ligado!"
 					print ("Luminosidade: %d" %vlumi)
-					print "Luz Desligada! Agora é dia!"
+					print "Luz Desligada! Agora e dia!"
+					time.sleep(5)
 				elif vtemp < temperatura and vlumi < sensibilidade:
 					desligarele()
 					ligaled()
+<<<<<<< HEAD
 					dweet.dweet_by_name(name="iplug_sabrina_q4", data={"led":1, "rele":0, "toque":1, "Temperatura":vtemp, "Luminosidade":vlumi})
+=======
+					dweet.dweet_by_name(name="iplug_sabrina_q4", data={"led":1, "rele":0, "toque":1})
+>>>>>>> 88807c675ea8f4ebf6e82ce1d81e258cbc2f05d7
 					print ("Temperatura: %2.1f" %vtemp)
 					print "Ar condiciondo desligado!"
 					print ("Luminosidade: %d" %vlumi)
-					print "Luz Ligada! Agora é noite!"
+					print "Luz Ligada! Agora e noite!"
+					time.sleep(5)
 				else:		
 					desligarele()
 					desligaled()
+<<<<<<< HEAD
 					dweet.dweet_by_name(name="iplug_sabrina_q4", data={"led":0, "rele":0, "toque":1, "Temperatura":vtemp, "Luminosidade":vlumi})
+=======
+					dweet.dweet_by_name(name="iplug_sabrina_q4", data={"led":0, "rele":0, "toque":1})
+>>>>>>> 88807c675ea8f4ebf6e82ce1d81e258cbc2f05d7
 					print ("Temperatura: %2.1f" %vtemp)
 					print "Ar condiciondo desligado!"
 					print ("Luminosidade: %d" %vlumi)
-					print "Luz desligada. Agora é dia!"
+					print "Luz desligada. Agora e dia!"
+					time.sleep(5)
 	
 			else:
+<<<<<<< HEAD
 				print "Você acionou o controle manual! Agora pode decidir quando ligar ou desligar seus aparelhos!"
 				respostaligarele = dweet.latest_dweet(name="iplug_sabrina_q4")
 				dwligarele = respostaligarele['with'][0]['content']['button']
@@ -172,3 +201,39 @@ while True:
 				desligarele()
 				dweet.dweet_by_name(name="iplug_sabrina_q4", data={"led":0, "rele":0, "toque":1, "Temperatura":vtemp, "Luminosidade":vlumi})	
 			time.sleep(5)
+=======
+				print "Sistema automatico desligado! Agora voce pode ligar ou desligar seus aparelhos quando quiser"
+				#resposta = dweet.latest_dweet(name="iplug_sabrina_q4")
+				#dwligaled = resposta['with'][0]['content']['led']
+				#dwligarele = resposta['with'][0]['content']['rele']
+
+				if dwligaled == 1 and dwligarele == 1:
+					ligaled()
+					ligarele()
+					print "Luzes e Ar condionado ligados"
+					dweet.dweet_by_name(name="iplug_sabrina_q4", data={"led":1, "rele":1, "toque":1})
+					time.sleep(5)
+				
+				elif dwligaled == 1 and dwligarele == 0:
+					ligaled()
+					desligarele()
+					print "Luzes ligadas e Ar condicionado desligado"
+					dweet.dweet_by_name(name="iplug_sabrina_q4", data={"led":1, "rele":0, "toque":1})
+					time.sleep(5)
+
+				elif dwligaled == 0 and dwligarele == 1:
+					desligaled()
+					ligarele()
+					print "Luzes desligadas e ar condicionado ligado"
+					dweet.dweet_by_name(name="iplug_sabrina_q4", data={"led":0, "rele":1, "toque":1})
+					time.sleep(5)
+
+				else:
+					desligaled()
+					desligarele()
+					print "Luzes e ar condicionado desligados"
+					dweet.dweet_by_name(name="iplug_sabrina_q4", data={"led":0, "rele":0, "toque":1})
+					time.sleep(5)
+
+			time.sleep(5)		
+>>>>>>> 88807c675ea8f4ebf6e82ce1d81e258cbc2f05d7
