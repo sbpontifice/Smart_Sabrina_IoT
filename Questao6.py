@@ -90,16 +90,16 @@ def desligaled():
 	#print resposta['content']
 
 def respostadweet():
-	resposta = dweet.latest_dweet(name="iplug_sabrina_q5")
+	resposta = dweet.latest_dweet(name="iplug_sabrina_q4")
 	dwligarele = resposta['with'][0]['content']['button']
 	
-	resposta = dweet.latest_dweet(name="iplug_sabrina_q5")
+	resposta = dweet.latest_dweet(name="iplug_sabrina_q4")
 	dwdesligarele = resposta['content']
 
-	resposta = dweet.latest_dweet(name="iplug_sabrina_q5")
+	resposta = dweet.latest_dweet(name="iplug_sabrina_q4")
 	dwligaled = resposta['with'][0]['content']['led']
 
-	resposta = dweet.latest_dweet(name="iplug_sabrina_q5")
+	resposta = dweet.latest_dweet(name="iplug_sabrina_q4")
 	dwdesligaled = resposta['content']		
 
 
@@ -115,7 +115,7 @@ while True:
 	 			if vtemp > temperatura and vlumi < sensibilidade:
 					ligarele()
 					ligaled()
-					dweet.dweet_by_name(name="iplug_sabrina_q5", data={"led":1, "rele":1, "toque":1})
+					dweet.dweet_by_name(name="iplug_sabrina_q4", data={"led":1, "rele":1, "toque":1, "Temperatura":vtemp, "Luminosidade":vlumi})
 					print ("Temperatura: %2.1f" %vtemp)
 					print "Ar condiciondo ligado!"
 					print ("Luminosidade: %d" %vlumi)
@@ -123,7 +123,7 @@ while True:
 				elif vtemp > temperatura and vlumi > sensibilidade:
 					ligarele()
 					desligaled()
-					dweet.dweet_by_name(name="iplug_sabrina_q5", data={"led":0, "rele":1, "toque":1})
+					dweet.dweet_by_name(name="iplug_sabrina_q4", data={"led":0, "rele":1, "toque":1, "Temperatura":vtemp, "Luminosidade":vlumi})
 					print ("Temperatura: %2.1f" %vtemp)
 					print "Ar condiciondo ligado!"
 					print ("Luminosidade: %d" %vlumi)
@@ -131,7 +131,7 @@ while True:
 				elif vtemp < temperatura and vlumi < sensibilidade:
 					desligarele()
 					ligaled()
-					dweet.dweet_by_name(name="iplug_sabrina_q5", data={"led":1, "rele":0, "toque":1})
+					dweet.dweet_by_name(name="iplug_sabrina_q4", data={"led":1, "rele":0, "toque":1, "Temperatura":vtemp, "Luminosidade":vlumi})
 					print ("Temperatura: %2.1f" %vtemp)
 					print "Ar condiciondo desligado!"
 					print ("Luminosidade: %d" %vlumi)
@@ -139,7 +139,7 @@ while True:
 				else:		
 					desligarele()
 					desligaled()
-					dweet.dweet_by_name(name="iplug_sabrina_q5", data={"led":0, "rele":0, "toque":1})
+					dweet.dweet_by_name(name="iplug_sabrina_q4", data={"led":0, "rele":0, "toque":1, "Temperatura":vtemp, "Luminosidade":vlumi})
 					print ("Temperatura: %2.1f" %vtemp)
 					print "Ar condiciondo desligado!"
 					print ("Luminosidade: %d" %vlumi)
@@ -147,29 +147,29 @@ while True:
 	
 			else:
 				print "Você acionou o controle manual! Agora pode decidir quando ligar ou desligar seus aparelhos!"
-				respostaligarele = dweet.latest_dweet(name="iplug_sabrina_q5")
+				respostaligarele = dweet.latest_dweet(name="iplug_sabrina_q4")
 				dwligarele = respostaligarele['with'][0]['content']['button']
 	
-				respostaligaled = dweet.latest_dweet(name="iplug_sabrina_q5")
+				respostaligaled = dweet.latest_dweet(name="iplug_sabrina_q4")
 				dwligaled = respostaligaled['with'][0]['content']['led']
 
 				if dwligaled ==1 and dwligarele ==1:
 				ligaled()
 				ligarele()
-				dweet.dweet_by_name(name="iplug_sabrina_q5", data={"led":1, "rele":1, "toque":1})
+				dweet.dweet_by_name(name="iplug_sabrina_q4", data={"led":1, "rele":1, "toque":1, "Temperatura":vtemp, "Luminosidade":vlumi})
 				
 				elif dwligaled ==1 and dwligarele ==0:
 				ligaled()
 				desligarele()
-				dweet.dweet_by_name(name="iplug_sabrina_q5", data={"led":1, "rele":0, "toque":1})
+				dweet.dweet_by_name(name="iplug_sabrina_q4", data={"led":1, "rele":0, "toque":1, "Temperatura":vtemp, "Luminosidade":vlumi})
 				
 				elif dwligaled == 0 and dwligarele ==1:
 				desligaled()
 				ligarele()
-				dweet.dweet_by_name(name="iplug_sabrina_q5", data={"led":0, "rele":1, "toque":1})
+				dweet.dweet_by_name(name="iplug_sabrina_q4", data={"led":0, "rele":1, "toque":1, "Temperatura":vtemp, "Luminosidade":vlumi})
 
 				else:
 				desligaled()
 				desligarele()
-				dweet.dweet_by_name(name="iplug_sabrina_q5", data={"led":0, "rele":0, "toque":1})	
+				dweet.dweet_by_name(name="iplug_sabrina_q4", data={"led":0, "rele":0, "toque":1, "Temperatura":vtemp, "Luminosidade":vlumi})	
 			time.sleep(5)
