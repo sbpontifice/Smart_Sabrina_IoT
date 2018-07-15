@@ -47,7 +47,7 @@ def temperatura(gpio):
 	adcout = (r1[1] << 8) & 0b1100000000
 	adcout = adcout | (r1[2] & 0xff)		
 
-	adc_temp = (adcout *5.0/1023-0.5)*100
+	adc_temp = (((adcout *5.0/1023-0.5)*100)-40)
 
 	
 	return adc_temp
